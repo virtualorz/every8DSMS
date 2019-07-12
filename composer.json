@@ -1,0 +1,15 @@
+{
+    "name": "virtualorz/every8dsms",
+    "authors": [
+        {
+            "name": "virtualorz",
+            "email": "virtualorz@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Virtualorz\\Every8DSMS\\": "src/"
+        }
+    }
+}
