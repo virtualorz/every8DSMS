@@ -30,9 +30,27 @@ please, DO NOT EDIT 'Api_url'
 
 ###### send($message, $phone, $subject)
     send $message to $phone, $phone can be multiple numbers, for example "09889876543,09777876543", $subject can be null
+    
+    return value :
+    data['status'] = 1; //1 for success 0 for fail
+    data['status_string'] = ""; //success or fail
+    data['message'] = '';//success cost message or fail message
+    data['data'] = [
+        'CREDIT' => '',// the recent point on every8d
+        'SENDED' => '',// hwo many sms send this time
+        'COST' => '',// cost point this time
+        'UNSEND' => '',// how many can not send sms
+        'BATCH_ID' => '',// id for this send
+    ]
 
 ###### getCredit()
     get the point on every8d
+    
+    return value :
+        data['status'] = 1; //1 for success 0 for fail
+        data['status_string'] = ""; //success or fail
+        data['message'] = '';//success cost message or fail message
+        data['data'] = recent point
 
    
 # 中文版本文件
