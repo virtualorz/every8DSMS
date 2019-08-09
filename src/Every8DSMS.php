@@ -31,21 +31,27 @@ class Every8DSMS
 
         if(is_string($result)){
             $tmp = explode(',',$result);
-            $CREDIT = intval($tmp[0]);
-            $SENDED = intval($tmp[1]);
-            $COST = intval($tmp[2]);
-            $UNSEND = intval($tmp[3]);
-            $BATCH_ID = $tmp[4];
+            if(count($tmp) != 2) {
+                $CREDIT = intval($tmp[0]);
+                $SENDED = intval($tmp[1]);
+                $COST = intval($tmp[2]);
+                $UNSEND = intval($tmp[3]);
+                $BATCH_ID = $tmp[4];
 
-            if($CREDIT >= 0 && $SENDED == 1 && $UNSEND == 0){
-                self::$message['status'] = 1;
-                self::$message['status_string'] = "發送成功";
-                self::$message['message'] = '成功發送至'.$phone.' 共花費'.$COST.'點';
-                self::$message['data']['CREDIT'] = $CREDIT;
-                self::$message['data']['SENDED'] = $SENDED;
-                self::$message['data']['COST'] = $COST;
-                self::$message['data']['UNSEND']= $UNSEND;
-                self::$message['data']['BATCH_ID'] = $BATCH_ID;
+                if ($CREDIT >= 0 && $SENDED == 1 && $UNSEND == 0) {
+                    self::$message['status'] = 1;
+                    self::$message['status_string'] = "發送成功";
+                    self::$message['message'] = '成功發送至' . $phone . ' 共花費' . $COST . '點';
+                    self::$message['data']['CREDIT'] = $CREDIT;
+                    self::$message['data']['SENDED'] = $SENDED;
+                    self::$message['data']['COST'] = $COST;
+                    self::$message['data']['UNSEND'] = $UNSEND;
+                    self::$message['data']['BATCH_ID'] = $BATCH_ID;
+                } else {
+                    self::$message['status'] = 0;
+                    self::$message['status_string'] = "發送失敗";
+                    self::$message['message'] = '主機端發⽣不明錯誤，請與廠商窗⼝聯繫。';
+                }
             }
             else{
                 self::$message['status'] = 0;
