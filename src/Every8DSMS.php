@@ -22,7 +22,7 @@ class Every8DSMS
         $every8D = Config('every8DSMS');
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $every8D['Api_url'].'sendSMS.ashx?UID='.$every8D['account'].'&PWD='.$every8D['password'].'&SB='.urlencode($subject).'&MSG='.$message.'&DEST='.$phone);
+        curl_setopt($ch, CURLOPT_URL, $every8D['Api_url'].'sendSMS.ashx?UID='.$every8D['account'].'&PWD='.$every8D['password'].'&SB='.$subject.'&MSG='.urlencode($message).'&DEST='.$phone);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
