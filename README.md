@@ -14,7 +14,7 @@ edit config/app.php
     
     'aliases' => [
         ...
-        'ActionLog' => Virtualorz\Every8DSMS\Facades\Every8DSMS::class,
+        'Every8DSMS' => Virtualorz\Every8DSMS\Facades\Every8DSMS::class,
     ]
    
 # Publish data
